@@ -1,0 +1,16 @@
+/* PRIMARY BUTTON */
+.btn-primary {
+	width: 100%;
+	padding: 0.5rem 0;
+	color: white;
+	background-color: #888888;
+	border: none;
+	font-size: 1rem;
+}
+
+@media only screen and (min-width: 768px) {
+	.banner-title-wrap button {
+		background-color: #3e3e3e;
+		color: #e0e0e0;
+	}
+}

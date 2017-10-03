@@ -1,0 +1,329 @@
+/* Styling with mobile-first approach */
+body {
+	font-size: 16px;
+	line-height: 1;
+	font-family: 'Raleway', sans-serif;
+}
+
+/* TYPOGRAPHY */
+h1, h2, h3 {
+	color: #3e3e3e;
+}
+
+h1 {
+	font-weight: bold;
+	font-size: 2.5rem;
+	margin-bottom: 0.75rem;
+}
+
+h2 {
+	font-weight: bold;
+	font-size: 2rem;
+	margin-bottom: 0.5rem;
+}
+
+h3 {
+	font-size: 1.2rem;
+	font-weight: 600;
+}
+
+p {
+	line-height: 1.5;
+	font-size: 0.9rem;
+	color: #888888;
+}
+
+/* HELPERS */
+.text-center {
+	text-align: center;
+}
+
+/* CONTAINERS */
+.container-flex {
+	display: flex;
+	flex-flow: row wrap;
+}
+
+.container-flex-cross {
+	display: flex;
+	flex-flow: column wrap;
+}
+
+/* CONTAINER HELPERS */
+.align-center {
+	align-items: center;
+}
+
+.container-flex-cross.align-center {
+	justify-content: center;
+	align-items: flex-start;
+}
+
+/* ROWS */
+.row {
+	display: flex;
+	flex-flow: row wrap;
+	padding: 2rem 1rem;
+}
+
+/* Header has a fixed height and should not have a top- and bottom-padding */
+header .row {
+	padding: 0 1rem;
+}
+
+/* Rows in the main section do have all the same background color */
+main .row {
+	background-color: #f7f7f7;
+}
+
+/* Only banner row has a different background color */
+main .row:first-child {
+	background-color: lightgrey;
+	padding: 0;
+}
+
+/* All rows in the main seciton (except the first and last) do have a border */
+main .row:not(:first-child):not(:last-child) {
+	border-bottom: 1px solid lightgrey;
+}
+
+/* Custom padding for the seperate rows */
+.information-row {
+	padding-top: 1rem;
+}
+
+.footer-row {
+	padding: 1rem;
+}
+
+.thesis-row {
+	padding: 2rem 0 1.5rem 0;
+}
+
+/* Section/Row title */
+.row h1.title {
+	padding-bottom: 1rem;
+	margin: 0;
+}
+
+/* COLUMNS */
+/* All columns have a full width, they will be set differently on desktop */
+.full-column, .left-column, .right-column, .one-third-column {
+	flex-basis: 100%;
+	box-sizing: border-box;
+}
+
+/* IMAGES */
+.image-wrapper {
+	width: 100%;
+}
+
+.image-wrapper img {
+	width: 100%;
+	height: auto;
+}
+
+/* MEDIA INFORMATION */
+.media-information .title {
+	padding-top: 2rem;
+	padding-bottom: 1.5rem;
+}
+
+.thesis-row .media-information .title {
+	padding-top: 1.5rem;
+	padding-bottom: 0.5rem;
+}
+
+.media-information .author {
+	padding-top: 2rem;
+	font-weight: 500;
+}
+
+/* BANNER */
+.banner-title-wrap {
+	padding: 2rem 1rem;
+}
+
+.banner-title-wrap p {
+	font-weight: 600;
+    color: #4a4a4a;
+}
+
+.banner-title-wrap button {
+	margin-top: 1.5rem;
+}
+
+.banner-row h1.title {
+	padding-bottom: 2rem;
+}
+
+/* INFORMATION */
+.information-cards {
+	display: flex;
+	flex-flow: column wrap;
+	align-items: center;
+}
+
+/* Hide left 'information'-column on mobile */
+.information-row .left-column {
+	display: none;
+}
+
+/* COURSE */
+.course-cards .one-third-column:not(:last-child) {
+	margin-bottom: 0.5rem;
+}
+
+/* THESIS */
+/* Show only video on mobile */
+.thesis-row .right-column, .thesis-row .media-information {
+	display: none;
+}
+
+/* FOOTER */
+.footer-row {
+	justify-content: space-between;
+	background-color: #f7f7f7;
+}
+
+.footer-row .terms {
+	display: none;
+}
+
+/* RESPONSIVE */
+@media only screen and (min-width: 768px) {
+
+	h1, h2 {
+		margin: 0;
+	}
+
+	/* ROWS */
+	/* Adjust padding for desktop */
+	.row, main .row:first-child {
+		padding: 2rem 0 2rem 1.5rem;
+	}
+
+	header .row {
+		padding: 0 1.5rem;
+	}
+
+	footer .row {
+		padding: 1rem 1.5rem;
+	}
+
+	.course-row {
+		padding-left: 4.5rem;
+		padding-right: 4.5rem;
+	}
+
+	/* Switch padding top and bottom of information row to the columns, so we can set a full height border */
+	.information-row {
+		padding: 0 0 0 1.5rem;
+	}
+
+	/* On desktop, every second row has a different background */
+	main .row:nth-child(odd) {
+		background-color: lightgrey;
+	}
+
+	main .row:nth-child(even) {
+		background-color: #f7f7f7;
+	}
+
+	/* Remove border from mobile */
+	main .row:not(:first-child):not(:last-child) {
+		border-bottom: none;
+	}
+
+	/* Adjust padding for section title */
+	.row h1.title {
+		margin: 0;
+		padding-bottom: 2rem;
+	}
+
+	/* COLUMNS */
+	.full-column {
+		flex-basis: 100%;
+	}
+
+	.left-column {
+		flex-basis: 60%;
+		padding-right: 1.5rem;
+	}
+
+	.right-column {
+		flex-basis: 40%;
+	}
+
+	.one-third-column {
+		flex-basis: 33.3333333333%;
+	}
+
+	/* In the information section, the padding is set to the columns instead of the rows (for full height border) */
+	.information-row .left-column, .information-row .right-column {
+		padding-top: 2rem;
+		padding-bottom: 2rem;
+	}
+
+	.information-row .right-column {
+		border-left: 1px solid lightgrey;
+	}
+
+	/* First 'row' of course-cards will set the bottom padding */
+	.course-cards .one-third-column:nth-child(1), .course-cards .one-third-column:nth-child(2), .course-cards .one-third-column:nth-child(3) {
+		padding-bottom: 2rem;
+	}
+
+	/* INFORMATION */
+	.information-cards {
+		align-items: flex-start;
+	}
+
+	/* Show left 'information'-column on desktop */
+	.information-row .left-column {
+		display: block;
+	}
+
+	.information-row .card-content:not(:last-child) {
+		border-bottom: 1px solid lightgrey;
+	}
+
+	/* COURSE */
+	/* Create row without 'border'-padding */
+	.course-cards {
+		margin-left: -1rem;
+		margin-right: -1rem;
+	}
+
+	/* All columns have the same space between each other */
+	.course-row .one-third-column {
+		padding-left: 1rem;
+		padding-right: 1rem;
+	}
+
+	/* Remove margin from mobile */
+	.course-cards .one-third-column:not(:last-child) {
+		margin-bottom: 0;
+	}
+
+	/* BANNER */
+	.banner-title-wrap {
+		padding: 0 4.5rem 0 0;
+	}
+
+	/* THESIS */
+	/* Show content */
+	.thesis-row .right-column, .thesis-row .media-information {
+		display: block;
+	}
+
+	/* FOOTER */
+	/* Show content */
+	.footer-row .terms {
+		display: flex;
+	}
+
+	.footer-row .terms p:first-child {
+		padding-right: 1rem;
+	}
+}

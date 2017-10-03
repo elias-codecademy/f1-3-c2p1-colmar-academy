@@ -1,0 +1,77 @@
+.header {
+	position: fixed;
+	z-index: 10;
+	width: 100%;
+	background-color: white;
+}
+
+/* Offset to fixed header */
+main, footer {
+	position: relative;
+	top: 4rem;
+}
+
+span.academy {
+	color: lightgrey;
+}
+
+/* Alignment of header items */
+.title-bar-title {
+	flex-grow: 0.33333333333333;
+}
+
+nav {
+	flex-grow: 0.66666666666666;
+	justify-content: flex-end;
+}
+
+.mobile .menu {
+	justify-content: space-between;
+}
+
+.navigation-wrap {
+	height: 4rem;
+	justify-content: space-between;
+}
+
+.menu li, .title-bar-title {
+	height: 2rem;
+}
+
+.menu li img, .title-bar-title img {
+	height: 100%;
+}
+
+.menu li:not(:last-child) {
+	padding-right: 1rem;
+}
+
+/* Vertical alignment */
+.menu li {
+	display: flex;
+	align-items: center;
+}
+
+/* Hide desktop menu initially */
+.desktop {
+	display: none;
+}
+
+.title-bar-title span {
+	display: none;
+}
+
+@media only screen and (min-width: 768px) {
+	/* Hide mobile */
+	nav.mobile {
+		display: none;
+	}
+	/* Show desktop */
+	nav.desktop {
+		display: flex;
+	}
+
+	.title-bar-title span {
+		display: inline;
+	}
+}
